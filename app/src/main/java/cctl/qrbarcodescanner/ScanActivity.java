@@ -36,7 +36,7 @@ import me.dm7.barcodescanner.zxing.ZXingScannerView;
 import static android.Manifest.permission.CAMERA;
 
 /*
-Following class MainActivity initializes the scanner app
+Following class ScanActivity initializes the scanner module
  */
 public class ScanActivity extends AppCompatActivity  implements ZXingScannerView.ResultHandler {
 
@@ -94,13 +94,17 @@ public class ScanActivity extends AppCompatActivity  implements ZXingScannerView
             }
         }
     }
-
+    /*
+    * Following method onDestroy is called after scanning activity is over
+    * */
     @Override
     public void onDestroy() {
         super.onDestroy();
         scannerView.stopCamera();
     }
-
+    /*
+    * Following method onRequestPermissionsResult handles the permission for CAMERA access
+    * */
     public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
         switch (requestCode) {
             case REQUEST_CAMERA:
@@ -131,7 +135,9 @@ public class ScanActivity extends AppCompatActivity  implements ZXingScannerView
                 break;
         }
     }
-
+    /*
+    Following method showMessageOKCancel is used to display a OK Cancel pop up to the user
+    * */
     private void showMessageOKCancel(String message, DialogInterface.OnClickListener okListener) {
         new android.support.v7.app.AlertDialog.Builder(ScanActivity.this)
                 .setMessage(message)
@@ -153,10 +159,9 @@ public class ScanActivity extends AppCompatActivity  implements ZXingScannerView
 
     }
     /*
-    Following method getIPAddress fetches the IP Address from the WIFI connection and creates the
-    server connection URL dynamically
+    Following method get_IP_address dynamically fetches the IP Address from the WIFI connection
     */
-    public String getIpAddr() {
+    private String get_IP_address() {
         //WifiManager wifiManager = (WifiManager) getSystemService(WIFI_SERVICE);
         //WifiManager wifiInfo = wifiManager.getConnectionInfo();
         /*int ip = wifiInfo.getIpAddress();;
@@ -168,13 +173,14 @@ public class ScanActivity extends AppCompatActivity  implements ZXingScannerView
                 (ip >> 16 & 0xff),
                 (ip >> 24 & 0xff));
 */
+        //Currently a hardcoded IP address is being used until the dynamic fetch is not implmented
         return  "10.0.1.157";
     }
     /*
     Following method VisitMSR sends the scanned item code from app to the server, and handles the
     response it receives from the server
     */
-    private void VisitMSR(final String myResult) {
+    private void lookup_Item(final String myResult) {
         RequestQueue requestQueue;
         String URL;
         StringRequest request;
@@ -185,7 +191,7 @@ public class ScanActivity extends AppCompatActivity  implements ZXingScannerView
         Dynamic IP obtained from WIFI
         */
 
-        URL = "http://" + "10.0.1.157" + "/msr/item_control.php";
+        URL = "http://" + get_IP_address() + "/msr/item_control.php";
 
         /*
         * Send a HTTP POST request from app to server
@@ -251,13 +257,19 @@ public class ScanActivity extends AppCompatActivity  implements ZXingScannerView
     }
     @Override
     public void handleResult(Result result) {
-        final String myResult = result.getText();
+        final String item_id;
 
         //BeepAndVibrate();
 
-        VisitMSR(myResult);
+        //item_id = ParseResult(result.getText());
+        item_id = result.getText();
+        /*
+        Following method lookup_Item communicates with the server and finds out if the item is
+        present in the server side database
+        */
+        lookup_Item(item_id);
 
-        Log.d("QRCodeScanner", myResult);
+        Log.d("QRCodeScanner", item_id);
         Log.d("QRCodeScanner", result.getBarcodeFormat().toString());
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -273,9 +285,23 @@ public class ScanActivity extends AppCompatActivity  implements ZXingScannerView
         });
 
 
-        builder.setMessage(myResult);
+        builder.setMessage(item_id);
         AlertDialog alert1 = builder.create();
         alert1.show();
+    }
+    /*
+    The following method ParseResult shall parse the information from the scanned code and
+    returns only the Item Code for use in further processing
+    */
+    private String ParseResult(String scanned_text) {
+        /*
+        Code written with assumption that the scanned code will be a 3-tuple with structure
+        (INTERNAL NUMBER##ITEM CODE##DESCRIPTION) assumed delimiter is '##' double hash. So, second
+        element in the array stores the item code. For example the QR code info is
+        '8292##EGCA #241##LENOVO THINKPAD LAPTOP' the return code will be 'EGCA #241'
+        */
+        String[] split_text = scanned_text.split("##");
+        return  split_text [1];
     }
 }
 

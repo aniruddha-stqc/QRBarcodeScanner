@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">QR Barcode Scanner</string>
+    <string name="settings">Settings</string>
+    <string name="touch_any_where_to_scan">Touch any where to scan!</string>
 </resources>

@@ -1,17 +1,9 @@
 package cctl.qrbarcodescanner;
 
-
-/**
- * Created by test on 4/7/2017.
- */
-
-import android.app.Activity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
-/**
- * Created by filip on 10/21/2015.
- */
-public class ResultActivity extends Activity {
+public class ResultActivity extends AppCompatActivity {
 
     //private Button log_out;
 
