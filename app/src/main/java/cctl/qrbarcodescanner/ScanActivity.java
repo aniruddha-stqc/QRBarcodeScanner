@@ -178,7 +178,7 @@ public class ScanActivity extends AppCompatActivity  implements ZXingScannerView
         return  "10.0.1.157";
     }
     /*
-    Following method VisitMSR sends the scanned item code from app to the server, and handles the
+    Following method lookup_Item sends the scanned item code from app to the server, and handles the
     response it receives from the server
     */
     private void lookup_Item(final String myResult) {

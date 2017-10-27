@@ -42,8 +42,10 @@ public class MainActivity extends AppCompatActivity  {
         mMenuInflater.inflate(R.menu.my_menu, menu);
         return true;
     }
-    //Tells how to handle the settings button when selected
+    //Tells how to handle the settings button when clicked
     public boolean onOptionsItemSelected(MenuItem item){
+
+
         if (item.getItemId() == R.id.action_setting){
             Toast.makeText(MainActivity.this, "Clicked on Settings", Toast.LENGTH_SHORT).show();
             //on selecting select icon, the settings page is called

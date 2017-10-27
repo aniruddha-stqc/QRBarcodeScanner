@@ -1,5 +1,18 @@
 apply plugin: 'com.android.application'
 
+// Add a custom definition to access the latest SVN release number
+task svninfo << {
+    new ByteArrayOutputStream().withStream { os ->
+        def result = exec {
+            executable = 'svn'
+            args = ['info']
+            standardOutput = os
+        }
+        def outputAsString = os.toString()
+        def matchLastChangedRev = outputAsString =~ /Last Changed Rev: (\d+)/
+        println "Latest Changed Revision #: ${matchLastChangedRev[0][1]}"
+    }
+}
 android {
     compileSdkVersion 26
     buildToolsVersion "26.0.0"
@@ -14,6 +27,7 @@ android {
     buildTypes {
         release {
             minifyEnabled false
+            //buildConfigField("String", "SVN_REVISION", getSvnRevisionNr())
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
@@ -24,9 +38,10 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
+    // Add Zebra Crossing Library for bar code and QR code scanner
     compile 'me.dm7.barcodescanner:zxing:1.9'
+    // Add Volley Library for client server commmunication
     compile 'com.mcxiaoke.volley:library:1.0.19'
-    compile 'com.android.support:appcompat-v7:26.+'
     compile 'com.android.support:appcompat-v7:26.+'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     testCompile 'junit:junit:4.12'
