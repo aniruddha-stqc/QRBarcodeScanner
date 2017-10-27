@@ -36,7 +36,8 @@ import me.dm7.barcodescanner.zxing.ZXingScannerView;
 import static android.Manifest.permission.CAMERA;
 
 /*
-Following class ScanActivity initializes the scanner module
+Following class ScanActivity initializes the scanner module and performs the scanning of barcode
+and further sending the scanned item code to the web server for further processing
  */
 public class ScanActivity extends AppCompatActivity  implements ZXingScannerView.ResultHandler {
 

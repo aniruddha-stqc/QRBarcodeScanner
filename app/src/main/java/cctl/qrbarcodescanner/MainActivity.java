@@ -1,7 +1,6 @@
 package cctl.qrbarcodescanner;
 
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -23,10 +22,10 @@ public class MainActivity extends AppCompatActivity  {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        //Adds a Application tool bar with will contain the settings button at the left
         Toolbar mToolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(mToolbar);
-
+        //Define the main activity layout which will navigate to the scanner module when touched
         RelativeLayout r_layout = (RelativeLayout) findViewById(R.id.mainlayout);
         r_layout.setOnClickListener(new View.OnClickListener() {
 
@@ -37,16 +36,18 @@ public class MainActivity extends AppCompatActivity  {
 
         });
     }
-
+    //Adds the menu bar which contains the settings button
     public boolean onCreateOptionsMenu(Menu menu){
         MenuInflater mMenuInflater = getMenuInflater();
         mMenuInflater.inflate(R.menu.my_menu, menu);
         return true;
     }
-
+    //Tells how to handle the settings button when selected
     public boolean onOptionsItemSelected(MenuItem item){
         if (item.getItemId() == R.id.action_setting){
             Toast.makeText(MainActivity.this, "Clicked on Settings", Toast.LENGTH_SHORT).show();
+            //on selecting select icon, the settings page is called
+            startActivity(new Intent(getApplicationContext(),SettingsActivity.class));
         }
         return true;
     }
