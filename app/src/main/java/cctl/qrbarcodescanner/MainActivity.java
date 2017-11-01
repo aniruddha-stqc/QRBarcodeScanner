@@ -52,8 +52,7 @@ public class MainActivity extends AppCompatActivity  {
         if (item.getItemId() == R.id.action_setting){
             Toast.makeText(MainActivity.this, "Clicked on Settings", Toast.LENGTH_SHORT).show();
             //on selecting select icon, the settings page is called
-            Intent intent_settings = new Intent(this, SettingsActivity.class);
-            startActivity(intent_settings);
+            startActivity(new Intent(this, SettingsActivity.class));
         }
         return true;
     }
