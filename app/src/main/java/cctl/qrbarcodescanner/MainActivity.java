@@ -10,6 +10,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.RelativeLayout;
+import android.widget.Switch;
 import android.widget.Toast;
 
 /*
@@ -18,6 +19,8 @@ once any part of the screen is touched. This feature has been included to minimi
 due to the camera being on during scanning activity.
  */
 public class MainActivity extends AppCompatActivity  {
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,7 +52,8 @@ public class MainActivity extends AppCompatActivity  {
         if (item.getItemId() == R.id.action_setting){
             Toast.makeText(MainActivity.this, "Clicked on Settings", Toast.LENGTH_SHORT).show();
             //on selecting select icon, the settings page is called
-            startActivity(new Intent(getApplicationContext(),SettingsActivity.class));
+            Intent intent_settings = new Intent(this, SettingsActivity.class);
+            startActivity(intent_settings);
         }
         return true;
     }

@@ -175,7 +175,7 @@ public class ScanActivity extends AppCompatActivity  implements ZXingScannerView
                 (ip >> 24 & 0xff));
 */
         //Currently a hardcoded IP address is being used until the dynamic fetch is not implmented
-        return  "10.0.1.157";
+        return  "192.168.43.122";
     }
     /*
     Following method lookup_Item sends the scanned item code from app to the server, and handles the
