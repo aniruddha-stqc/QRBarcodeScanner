@@ -1,0 +1,39 @@
+
+Tsquid:S1197"8Move the array designator from the variable to the type.(¯ÜÑñ8 ğğ“å,
+ssquid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(—°°ıøÿÿÿÿ8 ğğ“å,
+Z"squid:SwitchLastCaseIsDefaultCheck""Add a default case to this switch.(×ö³–úÿÿÿÿ8 ğğ“å,
+nsquid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(†„ä8 ğğ“å,
+psquid:S00100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Íó¶Òùÿÿÿÿ8 ğğ“å,
+7squid:S3626"Remove this redundant jump.(ûÁİ…8 ğğ“å,
+Dsquid:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8 ğğ“å,
+gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ÀæŒ•8 ğğ“å,
+Dsquid:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8 ğğ“å,
+gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ÔŒ‰8 ğğ“å,
+ksquid:S00100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¢Í½8 ğğ“å,
+Psquid:S1066"/Merge this if statement with the enclosing one.(Å°æšüÿÿÿÿ8 ğğ“å,
+usquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(§ïó·8 ğğ“å,
+gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(É»ùª8 ğğ“å,
+nsquid:S3776"RRefactor this method to reduce its Cognitive Complexity from 23 to the 15 allowed.(¯ÜÑñ8 ğğ“å,
+psquid:S00100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ĞÕƒ•ùÿÿÿÿ8 ğğ“å,
+ksquid:S00100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(éÒÌÅ8 ğğ“å,
+Dsquid:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8 ğğ“å,
+bsquid:UnusedPrivateMethod"3Remove this unused private "BeepAndVibrate" method.(ĞÕƒ•ùÿÿÿÿ8 ğğ“å,
+gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(½À³©8 ğğ“å,
+`squid:S2147"ECombine this catch with the one at line 282, which has the same body.(ÿÒ„p8 ğğ“å,
+nsquid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(†„ä8 ğğ“å,
+jsquid:MaximumInheritanceDepth"<This class has 7 parents which is greater than 5 authorized.(“Ş•¡8 ğğ“å,
+Dsquid:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8 ğğ“å,
+fsquid:S2147"ECombine this catch with the one at line 282, which has the same body.(‹µ×‡øÿÿÿÿ8 ğğ“å,
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ôó™×ûÿÿÿÿ8 ğğ“å,
+Isquid:S1125"(Remove the literal "true" boolean value.(ôè»ùÿÿÿÿ8 ğğ“å,
+ksquid:S00100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(†„ä8 ğğ“å,
+nsquid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(·¹‰8 ğğ“å,
+Vsquid:S1161":Add the "@Override" annotation above this method signature(¯ÜÑñ8 ğğ“å,
+Dsquid:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8 ğğ“å,
+Usquid:S3400"9Remove this method and declare a constant for this value.(ŞÈ“8 ğğ“å,
+ssquid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Íó¶Òùÿÿÿÿ8 ğğ“å,
+fsquid:S2147"ECombine this catch with the one at line 282, which has the same body.(ĞĞ¹óúÿÿÿÿ8 ğğ“å,
+fsquid:S2147"ECombine this catch with the one at line 282, which has the same body.(“³Ûİüÿÿÿÿ8 ğğ“å,
+lsquid:S1301"KReplace this "switch" statement by "if" statements to increase readability.(×ö³–úÿÿÿÿ8 ğğ“å,
+hsquid:S1192"GDefine a constant instead of duplicating this literal "ERROR " 3 times.(¶ÀîËùÿÿÿÿ8 ğğ“å,
+Dsquid:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8 ğğ“å,
