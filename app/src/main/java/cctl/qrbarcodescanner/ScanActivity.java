@@ -3,6 +3,7 @@ package cctl.qrbarcodescanner;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.media.AudioManager;
 import android.media.ToneGenerator;
@@ -304,6 +305,7 @@ public class ScanActivity extends AppCompatActivity  implements ZXingScannerView
         Log.d("QRCodeScanner", item_id);
         Log.d("QRCodeScanner", result.getBarcodeFormat().toString());
 
+        /*
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Scan Result");
         builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
@@ -316,14 +318,13 @@ public class ScanActivity extends AppCompatActivity  implements ZXingScannerView
             }
         });
 
-
-
         if( status == true)
             builder.setMessage( "Verified OK!");
         else
             builder.setMessage( "Tampered!");
         AlertDialog alert1 = builder.create();
         alert1.show();
+        */
     }
     /*
     The following method ParseResult shall parse the information from the scanned code and
@@ -346,6 +347,37 @@ public class ScanActivity extends AppCompatActivity  implements ZXingScannerView
             Toast.makeText(getApplicationContext(), "ParseResult " +  status, Toast.LENGTH_SHORT).show();
         }
 
+
+        //Alert
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Scan Result");
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                //scannerView.stopCamera();
+                finish();
+                // scannerView.resumeCameraPreview(ScanActivity.this);
+
+            }
+        });
+        if( status == true) {
+            Intent intent = new Intent(this, ScrollViewActivity.class);
+            intent.putExtra("cctl.qrbarcodescanner","QR is OK \n" + split_text [0] );
+            startActivity(intent);
+            //builder.setMessage( "QR Data is OK: \n" + split_text [0]);
+        }
+
+
+        else{
+            Intent intent = new Intent(this, ScrollViewActivity.class);
+            intent.putExtra("cctl.qrbarcodescanner","QR Tampered!" );
+            startActivity(intent);
+            //builder.setMessage( "QR Data Tampered!");
+        }
+
+        AlertDialog alert1 = builder.create();
+       // alert1.show();
+
         return  status;
 
     }
@@ -367,6 +399,9 @@ public class ScanActivity extends AppCompatActivity  implements ZXingScannerView
 
         boolean status = sig.verify(signByte);
         Toast.makeText(getApplicationContext(), "VerifySignature " +  status, Toast.LENGTH_SHORT).show();
+
+
+
         return status;
     }
 }
